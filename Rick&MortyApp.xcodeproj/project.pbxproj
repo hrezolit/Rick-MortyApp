@@ -22,6 +22,10 @@
 		D57CB1A529711387004560BD /* RMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB1A429711387004560BD /* RMService.swift */; };
 		D57CB1A729711391004560BD /* RMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB1A629711391004560BD /* RMRequest.swift */; };
 		D57CB1A92971148A004560BD /* RMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB1A82971148A004560BD /* RMEndpoint.swift */; };
+		D57CB1B1297126CB004560BD /* RMOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB1B0297126CB004560BD /* RMOrigin.swift */; };
+		D57CB1B329712756004560BD /* RMSingleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB1B229712756004560BD /* RMSingleLocation.swift */; };
+		D57CB1B5297128F6004560BD /* RMCharacterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB1B4297128F6004560BD /* RMCharacterStatus.swift */; };
+		D57CB1B729712959004560BD /* RMCharacterGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB1B629712959004560BD /* RMCharacterGender.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		D57CB1A429711387004560BD /* RMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMService.swift; sourceTree = "<group>"; };
 		D57CB1A629711391004560BD /* RMRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMRequest.swift; sourceTree = "<group>"; };
 		D57CB1A82971148A004560BD /* RMEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEndpoint.swift; sourceTree = "<group>"; };
+		D57CB1B0297126CB004560BD /* RMOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMOrigin.swift; sourceTree = "<group>"; };
+		D57CB1B229712756004560BD /* RMSingleLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSingleLocation.swift; sourceTree = "<group>"; };
+		D57CB1B4297128F6004560BD /* RMCharacterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterStatus.swift; sourceTree = "<group>"; };
+		D57CB1B629712959004560BD /* RMCharacterGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterGender.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +97,9 @@
 		D57CB18F296FCECB004560BD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D57CB19E296FD6BA004560BD /* RMLocation.swift */,
-				D57CB1A0296FD6D1004560BD /* RMCharacter.swift */,
-				D57CB1A2296FD6DB004560BD /* RMEpisode.swift */,
+				D57CB1B829712ED8004560BD /* Character */,
+				D57CB1BB29712F22004560BD /* Location */,
+				D57CB1BC29712F2C004560BD /* Episode */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -148,6 +156,34 @@
 			children = (
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		D57CB1B829712ED8004560BD /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				D57CB1A0296FD6D1004560BD /* RMCharacter.swift */,
+				D57CB1B4297128F6004560BD /* RMCharacterStatus.swift */,
+				D57CB1B629712959004560BD /* RMCharacterGender.swift */,
+				D57CB1B229712756004560BD /* RMSingleLocation.swift */,
+				D57CB1B0297126CB004560BD /* RMOrigin.swift */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		D57CB1BB29712F22004560BD /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				D57CB19E296FD6BA004560BD /* RMLocation.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		D57CB1BC29712F2C004560BD /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				D57CB1A2296FD6DB004560BD /* RMEpisode.swift */,
+			);
+			path = Episode;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +256,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D57CB1B1297126CB004560BD /* RMOrigin.swift in Sources */,
+				D57CB1B329712756004560BD /* RMSingleLocation.swift in Sources */,
+				D57CB1B5297128F6004560BD /* RMCharacterStatus.swift in Sources */,
+				D57CB1B729712959004560BD /* RMCharacterGender.swift in Sources */,
 				D57CB19B296FD660004560BD /* RMSettingsViewController.swift in Sources */,
 				D57CB17A296FCDBC004560BD /* RMTabViewController.swift in Sources */,
 				D57CB1A3296FD6DB004560BD /* RMEpisode.swift in Sources */,
