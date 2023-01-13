@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Controller for tab bar
 final class RMTabViewController: UITabBarController {
 
     override func viewDidLoad() {
@@ -14,7 +15,8 @@ final class RMTabViewController: UITabBarController {
         view.backgroundColor = .orange
         setUpTabs()
     }
-
+    
+    /// seting up icons and titles for tab bar
     private func setUpTabs() {
         let charactersVC = RMCharactersViewController()
         let locationsVC = RMLocationViewController()

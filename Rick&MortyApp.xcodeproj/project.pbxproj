@@ -19,6 +19,9 @@
 		D57CB19F296FD6BA004560BD /* RMLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB19E296FD6BA004560BD /* RMLocation.swift */; };
 		D57CB1A1296FD6D1004560BD /* RMCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB1A0296FD6D1004560BD /* RMCharacter.swift */; };
 		D57CB1A3296FD6DB004560BD /* RMEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB1A2296FD6DB004560BD /* RMEpisode.swift */; };
+		D57CB1A529711387004560BD /* RMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB1A429711387004560BD /* RMService.swift */; };
+		D57CB1A729711391004560BD /* RMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB1A629711391004560BD /* RMRequest.swift */; };
+		D57CB1A92971148A004560BD /* RMEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB1A82971148A004560BD /* RMEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		D57CB19E296FD6BA004560BD /* RMLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLocation.swift; sourceTree = "<group>"; };
 		D57CB1A0296FD6D1004560BD /* RMCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacter.swift; sourceTree = "<group>"; };
 		D57CB1A2296FD6DB004560BD /* RMEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEpisode.swift; sourceTree = "<group>"; };
+		D57CB1A429711387004560BD /* RMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMService.swift; sourceTree = "<group>"; };
+		D57CB1A629711391004560BD /* RMRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMRequest.swift; sourceTree = "<group>"; };
+		D57CB1A82971148A004560BD /* RMEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEndpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,9 @@
 		D57CB193296FCEE8004560BD /* API Client */ = {
 			isa = PBXGroup;
 			children = (
+				D57CB1A429711387004560BD /* RMService.swift */,
+				D57CB1A629711391004560BD /* RMRequest.swift */,
+				D57CB1A82971148A004560BD /* RMEndpoint.swift */,
 			);
 			path = "API Client";
 			sourceTree = "<group>";
@@ -218,8 +227,11 @@
 				D57CB19F296FD6BA004560BD /* RMLocation.swift in Sources */,
 				D57CB199296FD649004560BD /* RMLocationViewController.swift in Sources */,
 				D57CB176296FCDBC004560BD /* AppDelegate.swift in Sources */,
+				D57CB1A529711387004560BD /* RMService.swift in Sources */,
 				D57CB1A1296FD6D1004560BD /* RMCharacter.swift in Sources */,
+				D57CB1A92971148A004560BD /* RMEndpoint.swift in Sources */,
 				D57CB197296FD622004560BD /* RMCharactersViewController.swift in Sources */,
+				D57CB1A729711391004560BD /* RMRequest.swift in Sources */,
 				D57CB178296FCDBC004560BD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
