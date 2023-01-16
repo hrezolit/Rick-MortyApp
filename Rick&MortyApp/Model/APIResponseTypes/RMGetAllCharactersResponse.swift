@@ -8,10 +8,8 @@
 import Foundation
 
 struct RMGetAllCharactersResponse: Codable {
-    
     let info: Info
     let results: [RMCharacter]
-    
 }
 
 struct Info: Codable {
