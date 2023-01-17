@@ -10,14 +10,20 @@ import UIKit
 /// Controller for showing and searching characters
 final class RMCharactersViewController: UIViewController {
 
-    private let charatcterListView = CharacterListView()
+    private let charatcterListView = RMCharacterListView()
     
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Characters"
         view.addSubview(charatcterListView)
         
+        setUpConstraintsForList()
+    }
+    
+    /// setting up constraints for character list view
+    private func setUpConstraintsForList() {
         NSLayoutConstraint.activate([
         
             charatcterListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),

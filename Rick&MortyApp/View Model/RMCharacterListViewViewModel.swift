@@ -7,16 +7,16 @@
 
 import UIKit
 
-final class CharacterListViewViewModel: NSObject {
+final class RMCharacterListViewViewModel: NSObject {
     
+    /// fetching data for character list
     func fetchCharacterList() {
         
         RMService.shared.execute(.listCharacterRequest, expecting: RMGetAllCharactersResponse.self) { result in
             
             switch result {
             case .success(let model):
-                print("Total: " + "\(model.info.count)")
-                print("Page result count: " + "\(model.results.count)")
+                print("Total: "+String(model.results.first?.image ?? "No Image"))
             case .failure(let error):
                 print(String(describing: error))
             }
@@ -24,7 +24,8 @@ final class CharacterListViewViewModel: NSObject {
     }
 }
 
-extension CharacterListViewViewModel: UICollectionViewDataSource {
+//MARK: - CollectionViewDataSource
+extension RMCharacterListViewViewModel: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -33,20 +34,22 @@ extension CharacterListViewViewModel: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemMint
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier, for: indexPath) as? RMCharacterCollectionViewCell else { fatalError("Unsupported cell")}
         
+        let viewModel = RMCharacterCollectionViewCellViewModel(characterName: "Nik", characterStatus: .alive, characterImageURL: URL(string: "https://rickandmortyapi.com/api/character/avatar/13.jpeg"))
+        
+        cell.configure(with: viewModel)
         return cell
     }
 }
 
-extension CharacterListViewViewModel: UICollectionViewDelegate {
-    
-    
+//MARK: - CollectionViewDelegate
+extension RMCharacterListViewViewModel: UICollectionViewDelegate {
     
 }
 
-extension CharacterListViewViewModel: UICollectionViewDelegateFlowLayout {
+//MARK: - CollectionViewDelegateFlowLayout
+extension RMCharacterListViewViewModel: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

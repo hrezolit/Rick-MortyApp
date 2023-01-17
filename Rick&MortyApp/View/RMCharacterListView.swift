@@ -1,5 +1,5 @@
 //
-//  CharacterListView.swift
+//  RMCharacterListView.swift
 //  Rick&MortyApp
 //
 //  Created by Nikita on 16/1/23.
@@ -8,9 +8,9 @@
 import UIKit
 
 /// VIew for showing characters
-final class CharacterListView: UIView {
+final class RMCharacterListView: UIView {
     
-    private let viewModel = CharacterListViewViewModel()
+    private let viewModel = RMCharacterListViewViewModel()
     
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -30,8 +30,8 @@ final class CharacterListView: UIView {
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(UICollectionViewCell.self,
-                                forCellWithReuseIdentifier: "cell")
+        collectionView.register(RMCharacterCollectionViewCell.self,
+                                forCellWithReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier)
         
         return collectionView
     }()
@@ -48,12 +48,16 @@ final class CharacterListView: UIView {
         spinner.startAnimating()
         
         setUpCollectionView()
+        
+        viewModel.fetchCharacterList()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    /// Constraints for Activity Indicator & Collection View
     private func setUpConstraints() {
         
         NSLayoutConstraint.activate([
@@ -69,6 +73,7 @@ final class CharacterListView: UIView {
         ])
     }
     
+    /// setting up the Collection View
     private func setUpCollectionView() {
         
         collectionView.dataSource = viewModel
