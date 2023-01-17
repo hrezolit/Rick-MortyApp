@@ -25,7 +25,7 @@ final class RMService {
     /// - Parameters:
     ///   - request: Requesting instance
     ///   - type: The type of object we expecting to get back
-    ///   - complition: Callback datat and error
+    ///   - completion: Callback datat and error
     public func execute<T: Codable>(_ request: RMRequest,
                                     expecting type: T.Type,
                                     completion: @escaping (Result<T, Error>) -> Void) {
@@ -53,13 +53,10 @@ final class RMService {
     }
     
     //MARK: - Private
-    
     private func request(from rmRequest: RMRequest) -> URLRequest? {
         guard let url = rmRequest.url else { return nil }
         var request = URLRequest(url: url)
         request.httpMethod = rmRequest.httpMethod
         return request
     }
-    
-    
 }

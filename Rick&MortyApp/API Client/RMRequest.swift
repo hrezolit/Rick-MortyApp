@@ -50,7 +50,6 @@ final class RMRequest {
         return string
     }
     
-    
     /// Making API url
     public var url: URL? {
         return URL(string: urlString)
@@ -58,7 +57,6 @@ final class RMRequest {
     
     /// HTTP Method
     public let httpMethod = "GET"
-    
     
     //MARK: - Public
     /// Construct request
@@ -78,5 +76,6 @@ final class RMRequest {
 }
 
 extension RMRequest {
+    
     static let listCharacterRequest = RMRequest(endPoint: .character)
 }

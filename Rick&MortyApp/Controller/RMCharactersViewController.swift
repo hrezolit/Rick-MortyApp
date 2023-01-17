@@ -10,19 +10,20 @@ import UIKit
 /// Controller for showing and searching characters
 final class RMCharactersViewController: UIViewController {
 
+    private let charatcterListView = CharacterListView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Characters"
+        view.addSubview(charatcterListView)
         
-        RMService.shared.execute(.listCharacterRequest, expecting: RMGetAllCharactersResponse.self) { result in
-            switch result {
-            case .success(let model):
-                print("Total: " + "\(model.info.count)")
-                print("Page result count: " + "\(model.results.count)")
-            case .failure(let error):
-                print(String(describing: error))
-            }
-        }
+        NSLayoutConstraint.activate([
+        
+            charatcterListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            charatcterListView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            charatcterListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            charatcterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }
