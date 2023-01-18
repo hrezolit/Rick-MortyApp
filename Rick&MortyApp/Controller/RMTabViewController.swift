@@ -10,6 +10,7 @@ import UIKit
 /// Controller for tab bar
 final class RMTabViewController: UITabBarController {
 
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -18,6 +19,7 @@ final class RMTabViewController: UITabBarController {
     
     /// seting up icons and titles for tab bar
     private func setUpTabs() {
+        
         let charactersVC = RMCharactersViewController()
         let locationsVC = RMLocationViewController()
         let episodesVC = RMEpisodesViewController()
@@ -46,13 +48,22 @@ final class RMTabViewController: UITabBarController {
                                                         image: UIImage(systemName: "slider.horizontal.3"),
                                                         tag: 4)
         
-        for navigationController in [navigationController1, navigationController2, navigationController3, navigationController4] {
+        for navigationController in [navigationController1,
+                                     navigationController2,
+                                     navigationController3,
+                                     navigationController4] {
+            
             navigationController.navigationBar.prefersLargeTitles = true
         }
         
         setViewControllers(
-            [navigationController1, navigationController2, navigationController3, navigationController4],
-            animated: true)
+            [navigationController1,
+             navigationController2,
+             navigationController3,
+             navigationController4],
+            
+            animated: true
+        )
     }
 }
 

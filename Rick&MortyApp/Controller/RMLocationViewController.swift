@@ -10,10 +10,10 @@ import UIKit
 /// Controller for showing and searching locations
 final class RMLocationViewController: UIViewController {
 
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Locations"
-
     }
 }

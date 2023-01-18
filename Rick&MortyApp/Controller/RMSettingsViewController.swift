@@ -10,6 +10,7 @@ import UIKit
 /// Controller for showing application's settings
 final class RMSettingsViewController: UIViewController {
 
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 

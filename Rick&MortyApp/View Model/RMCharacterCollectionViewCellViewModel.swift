@@ -13,6 +13,7 @@ final class RMCharacterCollectionViewCellViewModel {
     private let characterStatus: RMCharacterStatus
     private let characterImageURL: URL?
     
+    //MARK: - init
     init(
         characterName: String,
         characterStatus: RMCharacterStatus,
@@ -24,7 +25,7 @@ final class RMCharacterCollectionViewCellViewModel {
     }
     
     public var characterStatusText: String {
-        return characterStatus.rawValue
+        return "Status: \(characterStatus.text)"
     }
     
     public func fetchImage(completion: @escaping (Result<Data, Error>) -> Void) {

@@ -12,9 +12,11 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "RMCharacterCollectionViewCell"
     
+    //MARK: - Computing properties:
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -23,7 +25,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     private let nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.textColor = .label
-        nameLabel.font = .systemFont(ofSize: 18, weight: .medium)
+        nameLabel.font = .systemFont(ofSize: 20, weight: .medium)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
         return nameLabel
@@ -32,7 +34,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     private let statusLabel: UILabel = {
         let statusLabel = UILabel()
         statusLabel.textColor = .secondaryLabel
-        statusLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        statusLabel.font = .systemFont(ofSize: 18, weight: .regular)
         statusLabel.translatesAutoresizingMaskIntoConstraints = false
         
         return statusLabel
@@ -44,14 +46,24 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         
         contentView.backgroundColor = .secondarySystemBackground
         contentView.addSubviews(imageView, nameLabel, statusLabel)
-        
+        setUpLayer()
         setUpConstraintsForCell()
+    }
+    
+    private func setUpLayer() {
+        contentView.layer.shadowColor = UIColor(red: 123,
+                                                green: 243,
+                                                blue: 245,
+                                                alpha: 0.008).cgColor
+        contentView.layer.shadowOpacity = 0.4
+        contentView.layer.shadowOffset = CGSize(width: 2, height: 2)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /// Constraints for status label, name label and image view
     private func setUpConstraintsForCell() {
         NSLayoutConstraint.activate([
             
@@ -64,7 +76,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
             nameLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
             
             statusLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2),
-            nameLabel.bottomAnchor.constraint(equalTo: statusLabel.topAnchor, constant: -1),
+            nameLabel.bottomAnchor.constraint(equalTo: statusLabel.topAnchor, constant: -5),
             
             imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
@@ -73,13 +85,18 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        setUpLayer()
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
         imageView.image = nil
         nameLabel.text = nil
         statusLabel.text = nil
-        
     }
     
     public func configure(with viewModel: RMCharacterCollectionViewCellViewModel) {

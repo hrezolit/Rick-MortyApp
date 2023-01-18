@@ -10,10 +10,10 @@ import UIKit
 /// Controller for showing and searching episodes
 class RMEpisodesViewController: UIViewController {
 
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Episodes"
-        
     }
 }
