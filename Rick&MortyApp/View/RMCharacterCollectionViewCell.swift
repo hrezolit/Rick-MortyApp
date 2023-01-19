@@ -47,7 +47,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         contentView.backgroundColor = .secondarySystemBackground
         contentView.addSubviews(imageView, nameLabel, statusLabel)
         setUpLayer()
-        setUpConstraintsForCell()
+        addConstraintsForCell()
     }
     
     private func setUpLayer() {
@@ -65,7 +65,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     }
     
     /// Constraints for status label, name label and image view
-    private func setUpConstraintsForCell() {
+    private func addConstraintsForCell() {
         NSLayoutConstraint.activate([
             
             statusLabel.heightAnchor.constraint(equalToConstant: 30),

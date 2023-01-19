@@ -39,6 +39,9 @@ final class RMCharacterListView: UIView {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(RMCharacterCollectionViewCell.self,
                                 forCellWithReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier)
+        collectionView.register(RMFooterLoadingCollectionReusableView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                                withReuseIdentifier: RMFooterLoadingCollectionReusableView.identifire)
         
         return collectionView
     }()
@@ -50,7 +53,7 @@ final class RMCharacterListView: UIView {
         backgroundColor = .systemCyan
         addSubviews(collectionView, spinner)
         
-        setUpConstraints()
+        addConstraints()
         
         spinner.startAnimating()
         
@@ -67,7 +70,7 @@ final class RMCharacterListView: UIView {
     
     
     /// Constraints for Activity Indicator & Collection View
-    private func setUpConstraints() {
+    private func addConstraints() {
         
         NSLayoutConstraint.activate([
             spinner.widthAnchor.constraint(equalToConstant: 100),

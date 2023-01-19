@@ -19,11 +19,11 @@ final class RMCharactersViewController: UIViewController, RMCharacterListViewDel
         title = "Characters"
         view.addSubview(charatcterListView)
         
-        setUpConstraintsForList()
+        addConstraintsForList()
     }
     
     /// setting up constraints for character list view
-    private func setUpConstraintsForList() {
+    private func addConstraintsForList() {
         charatcterListView.deleagate = self
         view.addSubview(charatcterListView)
         NSLayoutConstraint.activate([
