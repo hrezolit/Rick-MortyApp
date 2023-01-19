@@ -59,6 +59,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         contentView.layer.shadowOffset = CGSize(width: 2, height: 2)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -85,9 +86,9 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         ])
     }
     
+    //TODO: How to make different colors of shadows while mode is changing dark/light?
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        
         setUpLayer()
     }
     
