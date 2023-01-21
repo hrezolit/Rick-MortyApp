@@ -76,6 +76,7 @@ final class RMCharacterListViewViewModel: NSObject {
             isLoadingMoreCharacters = false
             return
         }
+        
         RMService.shared.execute(request,
                                  expecting: RMGetAllCharactersResponse.self) { [weak self] result in
             guard let strongSelf = self else { return }
@@ -83,10 +84,9 @@ final class RMCharacterListViewViewModel: NSObject {
             switch result {
                 
             case .success(let responseModel):
-                
+                                
                 let moreResults = responseModel.results
                 let info = responseModel.info
-                strongSelf.characters.append(contentsOf: moreResults)
                 strongSelf.apiInfo = info
                 
                 let originalCount = strongSelf.characters.count
@@ -96,13 +96,15 @@ final class RMCharacterListViewViewModel: NSObject {
                 let indexPathToAdd: [IndexPath] = Array(startingIndex..<(startingIndex + newCount)).compactMap {
                     return IndexPath(row: $0, section: 0)
                 }
-                
+                strongSelf.characters.append(contentsOf: moreResults)
+
                 DispatchQueue.main.async {
                     strongSelf.delegate?.didLoadMoreCharacters(with: indexPathToAdd)
                     strongSelf.isLoadingMoreCharacters = false
                 }
+                
             case .failure(let failure):
-                print("something went wrong")
+                print(String(describing: failure))
                 self?.isLoadingMoreCharacters = false
             }
         }

@@ -51,10 +51,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpLayer() {
-        contentView.layer.shadowColor = UIColor(red: 123,
-                                                green: 243,
-                                                blue: 245,
-                                                alpha: 0.008).cgColor
+        contentView.layer.shadowColor = UIColor(red: 0, green: 1, blue: 1, alpha: 1).cgColor
         contentView.layer.shadowOpacity = 0.4
         contentView.layer.shadowOffset = CGSize(width: 2, height: 2)
     }
