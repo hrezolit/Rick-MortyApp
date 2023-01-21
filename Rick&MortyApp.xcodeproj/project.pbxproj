@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D50D0AD2297B90C900F7C863 /* RMImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50D0AD1297B90C900F7C863 /* RMImageManager.swift */; };
 		D57CB176296FCDBC004560BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB175296FCDBC004560BD /* AppDelegate.swift */; };
 		D57CB178296FCDBC004560BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB177296FCDBC004560BD /* SceneDelegate.swift */; };
 		D57CB17A296FCDBC004560BD /* RMTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57CB179296FCDBC004560BD /* RMTabViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D50D0AD1297B90C900F7C863 /* RMImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMImageManager.swift; sourceTree = "<group>"; };
 		D57CB172296FCDBC004560BD /* Rick&MortyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rick&MortyApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D57CB175296FCDBC004560BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D57CB177296FCDBC004560BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		D57CB195296FCF12004560BD /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				D50D0AD1297B90C900F7C863 /* RMImageManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				D59FCD2B2979206900555EA1 /* RMFooterLoadingCollectionReusableView.swift in Sources */,
 				D57CB17A296FCDBC004560BD /* RMTabViewController.swift in Sources */,
 				D57CB1A3296FD6DB004560BD /* RMEpisode.swift in Sources */,
+				D50D0AD2297B90C900F7C863 /* RMImageManager.swift in Sources */,
 				D57CB19D296FD692004560BD /* RMEpisodesViewController.swift in Sources */,
 				D5CD1FFC29768BE000283870 /* RMCharacterCollectionViewCell.swift in Sources */,
 				D57CB19F296FD6BA004560BD /* RMLocation.swift in Sources */,
