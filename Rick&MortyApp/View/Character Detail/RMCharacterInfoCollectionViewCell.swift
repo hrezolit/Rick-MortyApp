@@ -13,6 +13,9 @@ final class RMCharacterInfoCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        contentView.backgroundColor = .tertiarySystemBackground
+        contentView.layer.cornerRadius = 8
+        
     }
     
     @available(*, unavailable)
@@ -20,7 +23,7 @@ final class RMCharacterInfoCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUpConstraints() {
+    private func addConstraints() {
         
     }
     

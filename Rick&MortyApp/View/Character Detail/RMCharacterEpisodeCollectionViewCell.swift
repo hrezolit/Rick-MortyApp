@@ -20,7 +20,7 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setUpConstraints() {
+    private func addConstraints() {
         
     }
     

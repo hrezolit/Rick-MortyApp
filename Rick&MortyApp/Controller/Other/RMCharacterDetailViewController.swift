@@ -89,7 +89,6 @@ extension RMCharacterDetailViewController: UICollectionViewDataSource {
                 fatalError("Something goes wrong")
             }
             cell.configure(with: viewModel)
-            cell.backgroundColor = .systemBlue
             return cell
             
         case .information(let viewModels):
@@ -98,7 +97,6 @@ extension RMCharacterDetailViewController: UICollectionViewDataSource {
                 fatalError("Something goes wrong")
             }
             cell.configure(with: viewModels[indexPath.row])
-            cell.backgroundColor = .systemGray
             return cell
             
         case .episodes(let viewModels):
@@ -107,7 +105,6 @@ extension RMCharacterDetailViewController: UICollectionViewDataSource {
                 fatalError("Something goes wrong")
             }
             cell.configure(with: viewModels[indexPath.row])
-            cell.backgroundColor = .systemMint
             return cell
         }
     }
