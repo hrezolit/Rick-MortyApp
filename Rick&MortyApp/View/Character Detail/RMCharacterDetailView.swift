@@ -31,8 +31,8 @@ final class RMCharacterDetailView: UIView {
         
         let collectionView = createCollectionView()
         self.collectionView = collectionView
-        addSubviews(collectionView, spinner)
         
+        addSubviews(collectionView, spinner)
         addConstraint()
     }
     
