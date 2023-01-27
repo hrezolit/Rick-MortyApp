@@ -132,7 +132,7 @@ final class RMCharacterDetailViewViewModel {
         
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(0.335),
+                widthDimension: .fractionalWidth(0.3),
                 heightDimension: .absolute(150 )
             ),
             subitems: [item]
