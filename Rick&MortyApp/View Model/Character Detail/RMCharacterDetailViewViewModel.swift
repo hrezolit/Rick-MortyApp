@@ -11,6 +11,10 @@ final class RMCharacterDetailViewViewModel {
     
     private let character: RMCharacter
     
+    public var episodes: [String] {
+        character.episode
+    }
+    
     enum SectionType {
         case photo(viewModel: RMCharacterPhotoCollectionViewCellViewModel)
         case information(viewModels: [RMCharacterInfoCollectionViewCellViewModel])
@@ -128,12 +132,12 @@ final class RMCharacterDetailViewViewModel {
                 heightDimension: .fractionalHeight(1.0)
             )
         )
-        item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 3, bottom: 5, trailing: 10)
         
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(0.3),
-                heightDimension: .absolute(150 )
+                widthDimension: .fractionalWidth(0.9),
+                heightDimension: .absolute(150)
             ),
             subitems: [item]
         )
