@@ -8,7 +8,7 @@
 import Foundation
 
 /// API endpoints
-@frozen enum RMEndpoint: String {
+@frozen enum RMEndpoint: String, Hashable, CaseIterable {
     /// endpoint for geting characters info
     case character
     
