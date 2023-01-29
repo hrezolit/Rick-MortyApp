@@ -55,12 +55,11 @@ final class RMService {
                 return
             }
             
-            // decode the response
+            // Decode the response
             do {
                 let result = try JSONDecoder().decode(type.self, from: data)
                 
                 self?.cacheManager.setCache(for: request.endPoint, url: request.url, data: data)
-                
                 completion(.success(result))
             } catch {
                 completion(.failure(error))
