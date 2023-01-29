@@ -15,6 +15,5 @@ final class RMSettingsViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Settings"
-
     }
 }

@@ -19,7 +19,16 @@ class RMEpisodesViewController: UIViewController, RMEpisodeListViewDelegate {
         title = "Episodes"
         view.addSubview(episodeListView)
         
+        addSearchButton()
         addConstraintsForList()
+    }
+    
+    private func addSearchButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
+    }
+    
+    @objc func didTapSearch() {
+        
     }
     
     /// setting up constraints for character list view

@@ -36,11 +36,10 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.backgroundColor = .systemBackground
-        contentView.layer.cornerRadius = 8
-        contentView.layer.borderWidth = 4
-        contentView.layer.borderColor = #colorLiteral(red: 0.1758238375, green: 0.352137804, blue: 0.6533707976, alpha: 1).cgColor
+        contentView.backgroundColor = .tertiarySystemBackground
         contentView.addSubviews(seasonLabel, nameLabel, airDateLabel)
+        
+        setUpLayer()
         
         addConstraints()
     }
@@ -48,6 +47,11 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setUpLayer() {
+        contentView.layer.cornerRadius = 8
+        contentView.layer.borderWidth = 4
     }
     
     private func addConstraints() {
@@ -73,9 +77,9 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-//        seasonLabel.text = nil
-//        nameLabel.text = nil
-//        airDateLabel.text = nil
+        //        seasonLabel.text = nil
+        //        nameLabel.text = nil
+        //        airDateLabel.text = nil
     }
     
     public func configure(with viewModel: RMCharacterEpisodeCollectionViewCellViewModel) {
@@ -87,5 +91,6 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
             
         }
         viewModel.fetchEpisode()
+        contentView.layer.borderColor = viewModel.borderColor.cgColor
     }
 }
