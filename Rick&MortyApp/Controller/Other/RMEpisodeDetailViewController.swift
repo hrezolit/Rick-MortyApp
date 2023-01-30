@@ -7,14 +7,15 @@
 
 import UIKit
 
-class RMEpisodeDetailViewController: UIViewController {
-    
+/// Presenting details of single episode
+final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailViewViewModelDelegate {
+  
     private let viewModel: RMEpisodeDetailViewViewModel
     private let detailView = RMEpisodeDetailView()
     
     //MARK: - init
     init(url: URL?) {
-        self.viewModel = .init(endpointURL: url)
+        self.viewModel = RMEpisodeDetailViewViewModel(endpointURL: url)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,10 +30,11 @@ class RMEpisodeDetailViewController: UIViewController {
         title = "Episode"
         view.backgroundColor = .systemBackground
         view.addSubview(detailView)
-        
         navigationItem.backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
         
         addConstraints()
+        viewModel.delegate = self
+        viewModel.fetchEpisodeData()
     }
     
     private func addConstraints() {
@@ -47,5 +49,10 @@ class RMEpisodeDetailViewController: UIViewController {
     
     @objc func didTapShare() {
         
+    }
+    
+    // MARK: - Delegate:
+    func didFetchEpisodeDetails() {
+        detailView.configure(with: viewModel)
     }
 }
