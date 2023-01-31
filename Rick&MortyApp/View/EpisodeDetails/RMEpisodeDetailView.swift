@@ -12,12 +12,14 @@ final class RMEpisodeDetailView: UIView {
     private var viewModel: RMEpisodeDetailViewViewModel? {
         didSet {
             spinner.stopAnimating()
+            self.collectionView?.reloadData()
             self.collectionView?.isHidden = false
             UIView.animate(withDuration: 0.3) {
                 self.collectionView?.alpha = 1
             }
         }
     }
+    
     private var collectionView: UICollectionView?
     
     private let spinner: UIActivityIndicatorView = {
@@ -76,6 +78,7 @@ final class RMEpisodeDetailView: UIView {
         let layout = UICollectionViewCompositionalLayout { section, _ in
             return self.layout(for: section)
         }
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isHidden = true
@@ -117,11 +120,18 @@ extension RMEpisodeDetailView: UICollectionViewDelegate {
 extension RMEpisodeDetailView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return viewModel?.cellViewModels.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        guard let sections = viewModel?.cellViewModels else { return 0 }
+        let sectionType = sections[section]
+        switch sectionType {
+        case .information(let viewModels):
+            return viewModels.count
+        case .characters(let viewModels):
+            return viewModels.count
+        }
     }
     
     
@@ -136,5 +146,4 @@ extension RMEpisodeDetailView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
     }
-    
 }
