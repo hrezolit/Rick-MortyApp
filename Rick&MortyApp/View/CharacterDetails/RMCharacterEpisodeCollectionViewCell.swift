@@ -33,6 +33,7 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
     }()
     
     // MARK: - init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -53,6 +54,8 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 8
         contentView.layer.borderWidth = 4
     }
+    
+    // MARK: - Constraints:
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
@@ -77,9 +80,9 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        //        seasonLabel.text = nil
-        //        nameLabel.text = nil
-        //        airDateLabel.text = nil
+        seasonLabel.text = nil
+        nameLabel.text = nil
+        airDateLabel.text = nil
     }
     
     public func configure(with viewModel: RMCharacterEpisodeCollectionViewCellViewModel) {
@@ -90,6 +93,7 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
             self?.airDateLabel.text = "Aired on: " + data.air_date
             
         }
+        
         viewModel.fetchEpisode()
         contentView.layer.borderColor = viewModel.borderColor.cgColor
     }

@@ -29,12 +29,14 @@ final class RMCharacterEpisodeCollectionViewCellViewModel: Hashable, Equatable {
     }
     
     // MARK: - init
+    
     init(episodeDataURL: URL?, borderColor: UIColor = .systemMint) {
         self.episodeDataURL = episodeDataURL
         self.borderColor = borderColor
     }
     
     // MARK: - Public
+    
     public func registerForData(_ block: @escaping (RMEpisodeDataRender) -> Void) {
         self.dataBlock = block
     }

@@ -41,6 +41,7 @@ final class RMCharacterInfoCollectionViewCell: UICollectionViewCell {
     }()
     
     // MARK: - init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

@@ -13,12 +13,12 @@ final class RMCharactersViewController: UIViewController, RMCharacterListViewDel
     private let charatcterListView = RMCharacterListView()
     
     //MARK: - viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Characters"
         view.addSubview(charatcterListView)
-        
         
         addConstraintsForList()
         addSearchButton()

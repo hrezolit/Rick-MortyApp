@@ -14,6 +14,7 @@ final class RMCharacterDetailViewController: UIViewController {
     private let detailView: RMCharacterDetailView
     
     // MARK: - init:
+    
     init(viewModel: RMCharacterDetailViewViewModel) {
         self.viewModel = viewModel
         self.detailView = RMCharacterDetailView(frame: .zero, viewModel: viewModel)
@@ -26,6 +27,7 @@ final class RMCharacterDetailViewController: UIViewController {
     }
     
     //MARK: - viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -58,6 +60,7 @@ final class RMCharacterDetailViewController: UIViewController {
 }
 
 // MARK: - Collection View Delegate
+
 extension RMCharacterDetailViewController: UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.sections.count
@@ -65,6 +68,7 @@ extension RMCharacterDetailViewController: UICollectionViewDelegate {
 }
 
 // MARK: - Collection View Data Source
+
 extension RMCharacterDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let sectionTypes = viewModel.sections[section]
@@ -85,7 +89,7 @@ extension RMCharacterDetailViewController: UICollectionViewDataSource {
         case .photo(let viewModel):
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RMCharacterPhotoCollectionViewCell.cellIdentifier, for: indexPath) as? RMCharacterPhotoCollectionViewCell else {
-                fatalError("Something goes wrong")
+                fatalError("Something goes wrong cellForItemAt")
             }
             cell.configure(with: viewModel)
             return cell
@@ -93,7 +97,7 @@ extension RMCharacterDetailViewController: UICollectionViewDataSource {
         case .information(let viewModels):
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RMCharacterInfoCollectionViewCell.cellIdentifier, for: indexPath) as? RMCharacterInfoCollectionViewCell else {
-                fatalError("Something goes wrong")
+                fatalError("Something goes wrong cellForItemAt: information case")
             }
             cell.configure(with: viewModels[indexPath.row])
             return cell
@@ -101,7 +105,7 @@ extension RMCharacterDetailViewController: UICollectionViewDataSource {
         case .episodes(let viewModels):
             
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RMCharacterEpisodeCollectionViewCell.cellIdentifier, for: indexPath) as? RMCharacterEpisodeCollectionViewCell else {
-                fatalError("Something goes wrong")
+                fatalError("Something goes wrong cellForItemAt: episodes case")
             }
             let viewModel = viewModels[indexPath.row]
             cell.configure(with: viewModel)

@@ -19,6 +19,8 @@ final class RMFooterLoadingCollectionReusableView: UICollectionReusableView {
         return spinner
     }()
     
+    // MARK: - init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -31,6 +33,8 @@ final class RMFooterLoadingCollectionReusableView: UICollectionReusableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: - Constraint:
     
     private func addConstraints() {
         NSLayoutConstraint.activate([

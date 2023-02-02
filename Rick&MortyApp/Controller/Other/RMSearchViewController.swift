@@ -34,6 +34,6 @@ final class RMSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Search"
+        title = "Search..."
     }
 }

@@ -13,12 +13,14 @@ final class RMAPICacheManager {
     private var cacheDictionary: [RMEndpoint : NSCache<NSString, NSData>] = [:]
         
     // MARK: - init
+    
     init() {
         
         setUpCache()
     }
     
     //MARK: - Public:
+    
     public func setCache(for endpoint: RMEndpoint, url: URL?, data: Data) {
         guard
             let targetCache = cacheDictionary[endpoint],
@@ -41,6 +43,7 @@ final class RMAPICacheManager {
     }
     
     //MARK: - Private:
+    
     private func setUpCache() {
         RMEndpoint.allCases.forEach { endpoint in
             cacheDictionary[endpoint] = NSCache<NSString, NSData>()

@@ -46,6 +46,7 @@ final class RMEpisodeListView: UIView {
     }()
     
     // MARK: - init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false

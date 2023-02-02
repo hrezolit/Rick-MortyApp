@@ -46,6 +46,7 @@ final class RMCharacterListView: UIView {
     }()
     
     // MARK: - init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +67,6 @@ final class RMCharacterListView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     /// Constraints for Activity Indicator & Collection View
     private func addConstraints() {

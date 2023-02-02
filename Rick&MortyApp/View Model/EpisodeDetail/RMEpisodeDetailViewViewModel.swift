@@ -31,6 +31,7 @@ final class RMEpisodeDetailViewViewModel {
     public private(set) var cellViewModels: [SectionType] = []
     
     // MARK: - init
+    
     init(endpointURL: URL?) {
         self.endpointURL = endpointURL
     }

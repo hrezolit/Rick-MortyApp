@@ -112,6 +112,7 @@ final class RMCharacterListViewViewModel: NSObject {
 }
 
 //MARK: - CollectionViewDataSource
+
 extension RMCharacterListViewViewModel: UICollectionViewDataSource {
     
     // numberOfItemsInSection
@@ -141,6 +142,7 @@ extension RMCharacterListViewViewModel: UICollectionViewDelegate {
 }
 
 //MARK: - CollectionViewDelegateFlowLayout
+
 extension RMCharacterListViewViewModel: UICollectionViewDelegateFlowLayout {
     
     // viewForSupplementaryElementOfKind
@@ -181,6 +183,7 @@ extension RMCharacterListViewViewModel: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - UIScrollViewDelegate
+
 extension RMCharacterListViewViewModel: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -22,6 +22,8 @@ final class RMCharacterDetailView: UIView {
         return spinner
     }()
     
+    // MARK: - init
+    
     init(frame: CGRect, viewModel: RMCharacterDetailViewViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
@@ -40,6 +42,8 @@ final class RMCharacterDetailView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Constraints:
     
     private func addConstraint() {
         

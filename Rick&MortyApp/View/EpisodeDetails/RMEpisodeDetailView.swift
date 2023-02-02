@@ -32,6 +32,7 @@ final class RMEpisodeDetailView: UIView {
     
     
     // MARK: - init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -52,11 +53,13 @@ final class RMEpisodeDetailView: UIView {
     }
     
     // MARK: - Public:
+    
     public func configure(with viewModel: RMEpisodeDetailViewViewModel) {
         self.viewModel = viewModel
     }
     
     // MARK: - Private:
+    
     private func addConstraints() {
         guard let collectionView else { return }
         
@@ -85,7 +88,7 @@ final class RMEpisodeDetailView: UIView {
         collectionView.alpha = 0
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(RMEpisodeInfoCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         return collectionView
     }
 }
@@ -134,11 +137,9 @@ extension RMEpisodeDetailView: UICollectionViewDataSource {
         }
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         cell.backgroundColor = .systemMint
-        
         
         return cell
     }

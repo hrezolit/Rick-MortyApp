@@ -13,6 +13,7 @@ class RMEpisodesViewController: UIViewController, RMEpisodeListViewDelegate {
     private let episodeListView = RMEpisodeListView()
     
     //MARK: - viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +46,7 @@ class RMEpisodesViewController: UIViewController, RMEpisodeListViewDelegate {
     }
     
     // MARK: - Delegate
+    
     func rmEpisodeListView(_ rmEpisodeListView: RMEpisodeListView, didSelectEpisode episode: RMEpisode) {
         
         //Show detail controller for that episode

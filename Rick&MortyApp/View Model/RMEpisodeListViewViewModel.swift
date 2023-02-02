@@ -119,6 +119,7 @@ final class RMEpisodeListViewViewModel: NSObject {
 }
 
 //MARK: - CollectionViewDataSource
+
 extension RMEpisodeListViewViewModel: UICollectionViewDataSource {
     
     // numberOfItemsInSection
@@ -137,6 +138,7 @@ extension RMEpisodeListViewViewModel: UICollectionViewDataSource {
 }
 
 //MARK: - CollectionViewDelegate
+
 extension RMEpisodeListViewViewModel: UICollectionViewDelegate {
     
     // didSelectItemAt
@@ -148,6 +150,7 @@ extension RMEpisodeListViewViewModel: UICollectionViewDelegate {
 }
 
 //MARK: - CollectionViewDelegateFlowLayout
+
 extension RMEpisodeListViewViewModel: UICollectionViewDelegateFlowLayout {
     
     // viewForSupplementaryElementOfKind

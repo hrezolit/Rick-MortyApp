@@ -24,6 +24,7 @@ final class RMCharacterDetailViewViewModel {
     public var sections: [SectionType] = []
     
     // MARK: - init
+    
     init(character: RMCharacter) {
         self.character = character
         setUpSections()
@@ -78,6 +79,7 @@ final class RMCharacterDetailViewViewModel {
     }
     
     // MARK: - Photo's composition layout
+    
     public func createPhotoSectionLayout() -> NSCollectionLayoutSection {
         
         let item = NSCollectionLayoutItem(
@@ -101,6 +103,7 @@ final class RMCharacterDetailViewViewModel {
     }
     
     // MARK: - Information's composition layout
+    
     public func createInformationSectionLayout() -> NSCollectionLayoutSection {
         
         let item = NSCollectionLayoutItem(
@@ -124,6 +127,7 @@ final class RMCharacterDetailViewViewModel {
     }
     
     // MARK: - Episode's composition layout
+    
     public func createEpisodeSectionLayout() -> NSCollectionLayoutSection {
         
         let item = NSCollectionLayoutItem(

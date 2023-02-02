@@ -11,6 +11,7 @@ import UIKit
 final class RMLocationViewController: UIViewController {
 
     //MARK: - viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

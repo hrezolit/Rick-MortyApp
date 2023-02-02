@@ -12,7 +12,6 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "RMCharacterCollectionViewCell"
     
-    //MARK: - Computing properties:
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -41,6 +40,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     }()
     
     //MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -83,7 +83,6 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    //TODO: How to make different colors of shadows while mode is changing dark/light?
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         setUpLayer()
@@ -101,12 +100,14 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         nameLabel.text = viewModel.characterName
         statusLabel.text = viewModel.characterStatusText
         viewModel.fetchImage { [weak self] result in
+            
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {
                     let image = UIImage(data: data)
                     self?.imageView.image = image
                 }
+                
             case .failure(let error):
                 print(error.localizedDescription)
             }
