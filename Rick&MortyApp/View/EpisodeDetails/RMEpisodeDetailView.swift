@@ -88,21 +88,43 @@ final class RMEpisodeDetailView: UIView {
         collectionView.alpha = 0
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(RMEpisodeInfoCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        
+        // episodes cell
+        collectionView.register(RMEpisodeInfoCollectionViewCell.self, forCellWithReuseIdentifier: RMEpisodeInfoCollectionViewCell.cellIdentifier)
+        // characters cell
+        collectionView.register(RMCharacterCollectionViewCell.self, forCellWithReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier)
+        
         return collectionView
     }
 }
 
 // MARK: - extensions:
 
+// layouts
 extension RMEpisodeDetailView {
-    private func layout(for section: Int) -> NSCollectionLayoutSection {
+    
+     func layout(for section: Int) -> NSCollectionLayoutSection {
+         
+         guard let sections = viewModel?.cellViewModels else { return createInfoLayout()}
+         
+         switch sections[section] {
+         case .information:
+             return createInfoLayout()
+         case .characters:
+             return createCharacterLayout()
+         
+         }
+    }
+    
+    // create information layout
+    func createInfoLayout() -> NSCollectionLayoutSection {
+
         let item = NSCollectionLayoutItem(layoutSize: .init(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1))
         )
         
-        item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
         
         let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(
             widthDimension: .fractionalWidth(1),
@@ -114,12 +136,35 @@ extension RMEpisodeDetailView {
         
         return section
     }
+    
+    // create characters layout
+    func createCharacterLayout() -> NSCollectionLayoutSection {
+        
+        let item = NSCollectionLayoutItem(layoutSize: .init(
+            widthDimension: .fractionalWidth(0.5),
+            heightDimension: .fractionalHeight(1))
+        )
+        
+        item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .absolute(240)),
+            subitems: [item, item]
+        )
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        return section
+    }
 }
 
+// delegate
 extension RMEpisodeDetailView: UICollectionViewDelegate {
     
 }
 
+// datasource
 extension RMEpisodeDetailView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -138,13 +183,42 @@ extension RMEpisodeDetailView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemMint
         
-        return cell
+        guard let sections = viewModel?.cellViewModels else { fatalError("No view model, location: RMEpisodeDetailView -> cellForItemAt") }
+        let sectionType = sections[indexPath.section]
+        
+        switch sectionType {
+            
+            // information case
+        case .information(let viewModels):
+            
+            let viewModelCell = viewModels[indexPath.row]
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: RMEpisodeInfoCollectionViewCell.cellIdentifier,
+                for: indexPath
+            ) as? RMEpisodeInfoCollectionViewCell else { fatalError()}
+            
+            cell.configure(with: viewModelCell)
+            
+            return cell
+            
+            // character case
+        case .characters(let viewModels):
+            
+            let viewModelCell = viewModels[indexPath.row]
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier,
+                for: indexPath
+            ) as? RMCharacterCollectionViewCell else { fatalError()}
+            
+            cell.configure(with: viewModelCell)
+            
+            return cell
+            
+        }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            collectionView.deselectItem(at: indexPath, animated: true)
+        }
     }
-}

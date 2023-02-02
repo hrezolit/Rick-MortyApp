@@ -14,12 +14,20 @@ final class RMEpisodeInfoCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.backgroundColor = .purple
+        contentView.backgroundColor = .secondarySystemBackground
+        setUpLayer()
     }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setUpLayer() {
+        layer.cornerRadius = 8
+        layer.masksToBounds = true
+        layer.borderWidth = 3
+        layer.borderColor = UIColor.secondaryLabel.cgColor
     }
     
     override func prepareForReuse() {
