@@ -17,6 +17,7 @@ final class RMCharacterInfoCollectionViewCellViewModel {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSZ"
         formatter.timeZone = .current
+        formatter.locale = Locale(identifier: "en_US_POSIX")
         
         return formatter
     }()
@@ -26,6 +27,7 @@ final class RMCharacterInfoCollectionViewCellViewModel {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
+        formatter.locale = Locale(identifier: "en_US_POSIX")
         
         return formatter
     }()

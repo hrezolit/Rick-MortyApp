@@ -29,7 +29,6 @@ final class RMCharacterDetailView: UIView {
         super.init(frame: frame)
         
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .systemMint
         
         let collectionView = createCollectionView()
         self.collectionView = collectionView

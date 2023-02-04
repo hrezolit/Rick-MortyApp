@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol RMEpisodeDetailViewDelegate: AnyObject {
+    func rmEpisodeDetailView(_ detailView: RMEpisodeDetailView,
+                             didSelect character: RMCharacter)
+}
+
 final class RMEpisodeDetailView: UIView {
+    
+    public weak var delegate: RMEpisodeDetailViewDelegate?
     
     private var viewModel: RMEpisodeDetailViewViewModel? {
         didSet {
@@ -103,22 +110,22 @@ final class RMEpisodeDetailView: UIView {
 // layouts
 extension RMEpisodeDetailView {
     
-     func layout(for section: Int) -> NSCollectionLayoutSection {
-         
-         guard let sections = viewModel?.cellViewModels else { return createInfoLayout()}
-         
-         switch sections[section] {
-         case .information:
-             return createInfoLayout()
-         case .characters:
-             return createCharacterLayout()
-         
-         }
+    func layout(for section: Int) -> NSCollectionLayoutSection {
+        
+        guard let sections = viewModel?.cellViewModels else { return createInfoLayout()}
+        
+        switch sections[section] {
+        case .information:
+            return createInfoLayout()
+        case .characters:
+            return createCharacterLayout()
+            
+        }
     }
     
     // create information layout
     func createInfoLayout() -> NSCollectionLayoutSection {
-
+        
         let item = NSCollectionLayoutItem(layoutSize: .init(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1))
@@ -128,8 +135,8 @@ extension RMEpisodeDetailView {
         
         let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .absolute(100)),
-            subitems: [item]
+            heightDimension: .absolute(80)),
+                                                     subitems: [item]
         )
         
         let section = NSCollectionLayoutSection(group: group)
@@ -150,7 +157,7 @@ extension RMEpisodeDetailView {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(240)),
-            subitems: [item, item]
+                                                       subitems: [item, item]
         )
         
         let section = NSCollectionLayoutSection(group: group)
@@ -217,8 +224,24 @@ extension RMEpisodeDetailView: UICollectionViewDataSource {
             
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        guard let viewModel else { return }
         
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            collectionView.deselectItem(at: indexPath, animated: true)
+        let sections = viewModel.cellViewModels
+        let sectionType = sections[indexPath.section]
+        
+        switch sectionType {
+            
+            // information case
+        case .information:
+            break
+            
+            // character case
+        case .characters:
+            guard let character = viewModel.character(at: indexPath.row) else { return }
+            delegate?.rmEpisodeDetailView(self, didSelect: character)
         }
     }
+}

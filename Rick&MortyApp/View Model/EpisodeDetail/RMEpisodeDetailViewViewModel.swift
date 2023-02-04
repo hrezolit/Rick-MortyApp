@@ -38,6 +38,12 @@ final class RMEpisodeDetailViewViewModel {
     
     // MARK: - Public:
     
+    public func character(at index: Int) -> RMCharacter? {
+        guard let dataTuple else { return nil }
+        
+        return dataTuple.characters[index]
+    }
+    
     /// Fetch backing episode model
     public func fetchEpisodeData() {
         
@@ -64,13 +70,17 @@ final class RMEpisodeDetailViewViewModel {
         let episode = dataTuple.episode
         let character = dataTuple.characters
         
+        var createdString = episode.created
+        if let date = RMCharacterInfoCollectionViewCellViewModel.dateFormatter.date(from: episode.created) {
+            createdString = RMCharacterInfoCollectionViewCellViewModel.shortDateFormatter.string(from: date)
+        }
         cellViewModels = [
             .information(viewModel: [
                 
                 .init(title: "Episode name", value: episode.name),
                 .init(title: "Air date", value: episode.air_date),
                 .init(title: "Episode", value: episode.episode),
-                .init(title: "Created", value: episode.created),
+                .init(title: "Created", value: createdString),
             ]),
             .characters(viewModel: character.compactMap({ character in
                 return RMCharacterCollectionViewCellViewModel(
@@ -81,6 +91,8 @@ final class RMEpisodeDetailViewViewModel {
         ]
     }
     
+    /// fetch character related with current episode
+    /// - Parameter episode: current episode
     private func fetchRelatedCharacters(episode: RMEpisode) {
         let requests: [RMRequest] = episode.characters
             .compactMap {
@@ -113,7 +125,6 @@ final class RMEpisodeDetailViewViewModel {
             self.dataTuple = (
                 episode: episode,
                 characters: characters
-                
             )
         }
     }
