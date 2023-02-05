@@ -9,9 +9,6 @@ import Foundation
 
 struct RMSettingsViewViewModel {
     
-    let cellViewModel: [RMSettingsCellViewModel] = []
+    var cellViewModels: [RMSettingsCellViewModel] = []
     
-    init() {
-        
-    }
 }
