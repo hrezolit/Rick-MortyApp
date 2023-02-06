@@ -22,17 +22,17 @@ enum RMSettingsOption: CaseIterable {
         
         switch self {
         case .rateApp:
-            return #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            return #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
         case .contactUs:
-            return #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            return #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
         case .terms:
-            return #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            return #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
         case .privacy:
-            return #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+            return #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
         case .apiReference:
-            return #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
+            return #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
         case .viewSeries:
-            return #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+            return #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         case .viewCode:
             return #colorLiteral(red: 1, green: 0.2340943213, blue: 0.2250429188, alpha: 1)
         }
@@ -45,17 +45,17 @@ enum RMSettingsOption: CaseIterable {
         case .rateApp:
             return "Rate App"
         case .contactUs:
-            return "Contact us"
+            return "Contact Us"
         case .terms:
             return "Terms of Service"
         case .privacy:
             return "Privacy Policy"
         case .apiReference:
-            return "API reference"
+            return "API Reference"
         case .viewSeries:
-            return "View video series"
+            return "View Video Series"
         case .viewCode:
-            return "View app code"
+            return "View App's Code"
         }
     }
     
