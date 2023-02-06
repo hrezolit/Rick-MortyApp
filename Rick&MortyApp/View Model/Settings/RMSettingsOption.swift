@@ -17,6 +17,25 @@ enum RMSettingsOption: CaseIterable {
     case viewSeries
     case viewCode
     
+    var targetURL: URL? {
+        switch self {
+        case .rateApp:
+            return nil
+        case .contactUs:
+            return URL(string: "https://github.com/hrezolit")
+        case .terms:
+            return URL(string: "https://www.termsfeed.com/blog/sample-terms-and-conditions-template/")
+        case .privacy:
+            return URL(string: "https://app-privacy-policy-generator.firebaseapp.com")
+        case .apiReference:
+            return URL(string: "https://rickandmortyapi.com")
+        case .viewSeries:
+            return URL(string: "https://www.ts.kg/show/rick_and_morty")
+        case .viewCode:
+            return URL(string: "https://github.com/hrezolit/Rick-MortyApp")
+        }
+    }
+    
     // Color for icon container
     var iconContainerColor: UIColor {
         
