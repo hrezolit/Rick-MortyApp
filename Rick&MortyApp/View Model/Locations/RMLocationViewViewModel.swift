@@ -32,6 +32,11 @@ final class RMLocationViewViewModel {
     
     init() {}
     
+    public func location(at index: Int) -> RMLocation? {
+        guard index >= locations.count else { return nil }
+        return self.location(at: index)
+    }
+    
     public func fetchLoactions() {
         RMService.shared.execute(.listLocationsRequest, expecting: RMGetAllLocationsResponse.self) { [weak self] result in
             switch result {
