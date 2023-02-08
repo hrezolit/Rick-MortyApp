@@ -19,6 +19,7 @@ final class RMLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        primaryView.delegate = self
         view.addSubview(primaryView)
         
         title = "Locations"
@@ -47,10 +48,20 @@ final class RMLocationViewController: UIViewController {
         
     }
 }
+// MARK: - extensions:
 
 extension RMLocationViewController: RMLocationViewViewModelDelegate {
     
     func didFetchInitialLocations() {
         primaryView.configure(with: viewModel)
+    }
+}
+
+extension RMLocationViewController: RMLocationViewDelegate {
+    
+    func rmLocationView(_ locationView: RMLocationView, didSelec location: RMLocation) {
+        let vc = RMLocationDetailViewController(location: location)
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

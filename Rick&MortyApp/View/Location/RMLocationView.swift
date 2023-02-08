@@ -75,9 +75,7 @@ final class RMLocationView: UIView {
             tableView.topAnchor.constraint(equalTo: topAnchor),
             tableView.leftAnchor.constraint(equalTo: leftAnchor),
             tableView.rightAnchor.constraint(equalTo: rightAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor)
-            
-        
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor) 
         ])
     }
     
