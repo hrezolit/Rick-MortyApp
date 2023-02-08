@@ -29,7 +29,9 @@ class RMEpisodesViewController: UIViewController, RMEpisodeListViewDelegate {
     }
     
     @objc func didTapSearch() {
-        
+        let vc = RMSearchViewController(config: .init(type: .episode))
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     /// setting up constraints for character list view
