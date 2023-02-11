@@ -24,6 +24,17 @@ final class RMCharactersViewController: UIViewController, RMCharacterListViewDel
         addSearchButton()
     }
     
+    func rmCharacterListView(_ rmCharacterListView: RMCharacterListView, didSelectCharacter character: RMCharacter) {
+        
+        let viewModel = RMCharacterDetailViewViewModel(character: character)
+         
+        let detailVC = RMCharacterDetailViewController(viewModel: viewModel)
+        detailVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    //MARK: - Private:
+    
     private func addSearchButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
     }
@@ -45,14 +56,5 @@ final class RMCharactersViewController: UIViewController, RMCharacterListViewDel
             charatcterListView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             charatcterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-    }
-    
-    func rmCharacterListView(_ rmCharacterListView: RMCharacterListView, didSelectCharacter character: RMCharacter) {
-        
-        let viewModel = RMCharacterDetailViewViewModel(character: character)
-         
-        let detailVC = RMCharacterDetailViewController(viewModel: viewModel)
-        detailVC.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(detailVC, animated: true)
     }
 }

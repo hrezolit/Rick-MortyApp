@@ -30,6 +30,14 @@ final class RMLocationViewController: UIViewController {
         viewModel.fetchLoactions()
     }
     
+    @objc func didTapSearch() {
+        let vc = RMSearchViewController(config: .init(type: .location))
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: - Private:
+    
     private func addSearchButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
     }
@@ -43,13 +51,8 @@ final class RMLocationViewController: UIViewController {
             primaryView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
-    @objc func didTapSearch() {
-        let vc = RMSearchViewController(config: .init(type: .location))
-        vc.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(vc, animated: true)
-    }
 }
+
 // MARK: - extensions:
 
 extension RMLocationViewController: RMLocationViewViewModelDelegate {

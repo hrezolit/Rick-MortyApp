@@ -65,6 +65,8 @@ final class RMCharacterEpisodeCollectionViewCellViewModel: Hashable, Equatable {
         }
     }
     
+    // MARK: - Hashable:
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(self.episodeDataURL?.absoluteString ?? "")
     }

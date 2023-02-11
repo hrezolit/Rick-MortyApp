@@ -7,11 +7,13 @@
 
 import UIKit
 
+
 protocol RMLocationDetailViewDelegate: AnyObject {
     func rmLocationDetailView(_ detailView: RMLocationDetailView,
                              didSelect character: RMCharacter)
 }
 
+/// Detailing view for single location
 final class RMLocationDetailView: UIView {
     
     public weak var delegate: RMLocationDetailViewDelegate?

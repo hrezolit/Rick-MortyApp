@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Model for all characters response
 struct RMGetAllCharactersResponse: Codable {
     struct Info: Codable {
         let count: Int

@@ -68,6 +68,8 @@ final class RMCharacterListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private:
+    
     /// Constraints for Activity Indicator & Collection View
     private func addConstraints() {
         
@@ -91,6 +93,8 @@ final class RMCharacterListView: UIView {
         collectionView.delegate = viewModel
     }
 }
+
+// MARK: - extensions:
 
 extension RMCharacterListView: RMCharacterListViewViewModelDelegate {
     

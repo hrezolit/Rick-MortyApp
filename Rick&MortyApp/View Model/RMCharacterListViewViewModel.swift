@@ -28,6 +28,7 @@ final class RMCharacterListViewViewModel: NSObject {
                     characterStatus: character.status,
                     characterImageURL: URL(string: character.image)
                 )
+                
                 if !cellViewModels.contains(viewModel) {
                     cellViewModels.append(viewModel)
                 }
@@ -38,6 +39,8 @@ final class RMCharacterListViewViewModel: NSObject {
     private var cellViewModels: [RMCharacterCollectionViewCellViewModel] = []
     
     private var apiInfo: RMGetAllCharactersResponse.Info? = nil
+    
+    // MARK: - Public:
     
     /// fetching data for character list
     public func fetchCharacterList() {
@@ -111,8 +114,20 @@ final class RMCharacterListViewViewModel: NSObject {
     }
 }
 
-//MARK: - CollectionViewDataSource
+//MARK: - extensions:
 
+// Delegate
+extension RMCharacterListViewViewModel: UICollectionViewDelegate {
+    
+    // didSelectItemAt
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let character = characters[indexPath.row]
+        delegate?.didSelectCharacter(character)
+    }
+}
+
+// Data Source
 extension RMCharacterListViewViewModel: UICollectionViewDataSource {
     
     // numberOfItemsInSection
@@ -130,19 +145,7 @@ extension RMCharacterListViewViewModel: UICollectionViewDataSource {
     }
 }
 
-//MARK: - CollectionViewDelegate
-extension RMCharacterListViewViewModel: UICollectionViewDelegate {
-    
-    // didSelectItemAt
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        let character = characters[indexPath.row]
-        delegate?.didSelectCharacter(character)
-    }
-}
-
-//MARK: - CollectionViewDelegateFlowLayout
-
+// Delegate flow layout
 extension RMCharacterListViewViewModel: UICollectionViewDelegateFlowLayout {
     
     // viewForSupplementaryElementOfKind
@@ -182,8 +185,7 @@ extension RMCharacterListViewViewModel: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - UIScrollViewDelegate
-
+// Scroll view delegate
 extension RMCharacterListViewViewModel: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

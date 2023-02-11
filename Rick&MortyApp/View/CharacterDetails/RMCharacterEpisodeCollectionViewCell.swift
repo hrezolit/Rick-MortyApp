@@ -50,12 +50,34 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        seasonLabel.text = nil
+        nameLabel.text = nil
+        airDateLabel.text = nil
+    }
+    
+    // MARK: - Private:
+    
+    public func configure(with viewModel: RMCharacterEpisodeCollectionViewCellViewModel) {
+        viewModel.registerForData { [weak self] data in
+            
+            self?.seasonLabel.text = "Episode: " + data.episode
+            self?.nameLabel.text = data.name
+            self?.airDateLabel.text = "Aired on: " + data.air_date
+        }
+        
+        viewModel.fetchEpisode()
+        contentView.layer.borderColor = viewModel.borderColor.cgColor
+    }
+    
+    // MARK: - Private:
+    
     private func setUpLayer() {
         contentView.layer.cornerRadius = 8
         contentView.layer.borderWidth = 4
     }
-    
-    // MARK: - Constraints:
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
@@ -75,26 +97,5 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
             airDateLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
             airDateLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.3),
         ])
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        seasonLabel.text = nil
-        nameLabel.text = nil
-        airDateLabel.text = nil
-    }
-    
-    public func configure(with viewModel: RMCharacterEpisodeCollectionViewCellViewModel) {
-        viewModel.registerForData { [weak self] data in
-            
-            self?.seasonLabel.text = "Episode: " + data.episode
-            self?.nameLabel.text = data.name
-            self?.airDateLabel.text = "Aired on: " + data.air_date
-            
-        }
-        
-        viewModel.fetchEpisode()
-        contentView.layer.borderColor = viewModel.borderColor.cgColor
     }
 }

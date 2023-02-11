@@ -25,6 +25,8 @@ final class RMLocationDetailViewController: UIViewController, RMLocationDetailVi
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - viewDidLoad
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,12 @@ final class RMLocationDetailViewController: UIViewController, RMLocationDetailVi
         viewModel.fetchLocationData()
     }
     
+    @objc func didTapShare() {
+        
+    }
+    
+    // MARK: - Private:
+    
     private func addConstraints() {
         NSLayoutConstraint.activate([
             
@@ -47,9 +55,6 @@ final class RMLocationDetailViewController: UIViewController, RMLocationDetailVi
         ])
     }
     
-    @objc func didTapShare() {
-        
-    }
     // MARK: - View delegate:
     
     func rmLocationDetailView(_ detailView: RMLocationDetailView, didSelect character: RMCharacter) {

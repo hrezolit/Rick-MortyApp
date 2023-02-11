@@ -68,6 +68,7 @@ final class RMEpisodeListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private:
     
     /// Constraints for Activity Indicator & Collection View
     private func addConstraints() {
@@ -92,6 +93,8 @@ final class RMEpisodeListView: UIView {
         collectionView.delegate = viewModel
     }
 }
+
+// MARK: - extensions:
 
 extension RMEpisodeListView: RMEpisodeListViewViewModelDelegate {
 

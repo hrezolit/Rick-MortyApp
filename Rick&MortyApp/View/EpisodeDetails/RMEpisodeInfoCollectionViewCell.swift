@@ -43,6 +43,20 @@ final class RMEpisodeInfoCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        titleLable.text = nil
+        valueLable.text = nil
+    }
+    
+    func configure(with viewModel: RMEpisodeInfoCollectionViewCellViewModel) {
+        titleLable.text = viewModel.title
+        valueLable.text = viewModel.value
+    }
+    
+    //MARK: - Private:
+    
     private func addConstraints() {
         NSLayoutConstraint.activate([
             
@@ -64,18 +78,6 @@ final class RMEpisodeInfoCollectionViewCell: UICollectionViewCell {
         layer.masksToBounds = true
         layer.borderWidth = 3
         layer.borderColor = UIColor.secondaryLabel.cgColor
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        titleLable.text = nil
-        valueLable.text = nil
-    }
-    
-    func configure(with viewModel: RMEpisodeInfoCollectionViewCellViewModel) {
-        titleLable.text = viewModel.title
-        valueLable.text = viewModel.value
     }
 }
 

@@ -18,6 +18,8 @@ final class RMTabViewController: UITabBarController {
         setUpTabs()
     }
     
+    // MARK: - Private:
+    
     /// seting up icons and titles for tab bar
     private func setUpTabs() {
         

@@ -34,7 +34,13 @@ final class RMFooterLoadingCollectionReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Constraint:
+    //MARK: - Public:
+    
+    public func startAnimating() {
+        spinner.startAnimating()
+    }
+    
+    //MARK: - Private:
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
@@ -43,9 +49,5 @@ final class RMFooterLoadingCollectionReusableView: UICollectionReusableView {
             spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
             spinner.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
-    }
-    
-    public func startAnimating() {
-        spinner.startAnimating()
     }
 }

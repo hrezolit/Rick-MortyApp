@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Model for all locations response
 struct RMGetAllLocationsResponse: Codable {
     struct Info: Codable {
         let count: Int

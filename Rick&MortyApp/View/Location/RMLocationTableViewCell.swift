@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Location table view cell
 final class RMLocationTableViewCell: UITableViewCell {
     
     static let cellIdentifire = "RMLocationTableViewCell"
@@ -61,11 +62,15 @@ final class RMLocationTableViewCell: UITableViewCell {
         dimensionLable.text = nil
     }
     
+    //MARK: - Public:
+    
     public func configure(with viewModel: RMLocationTableViewCellViewModel) {
         nameLable.text = viewModel.name
         typeLable.text = viewModel.type
         dimensionLable.text = viewModel.dimension
     }
+    
+    //MARK: - Private:
     
     private func addConstraints() {
         NSLayoutConstraint.activate([

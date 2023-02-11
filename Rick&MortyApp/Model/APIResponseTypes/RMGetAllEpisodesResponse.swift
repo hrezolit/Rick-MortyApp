@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Model for all episodes response
 struct RMGetAllEpisodesResponse: Codable {
     struct Info: Codable {
         let count: Int

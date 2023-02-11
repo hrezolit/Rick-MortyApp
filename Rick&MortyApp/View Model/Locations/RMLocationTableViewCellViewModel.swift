@@ -31,6 +31,8 @@ struct RMLocationTableViewCellViewModel: Hashable, Equatable {
         return lhs.location.id == rhs.location.id
     }
     
+    //MARK: - Hashable:
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(location.id)

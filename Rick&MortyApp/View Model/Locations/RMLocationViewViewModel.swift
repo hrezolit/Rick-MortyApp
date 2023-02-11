@@ -10,7 +10,6 @@ import Foundation
 protocol RMLocationViewViewModelDelegate: AnyObject {
     
     func didFetchInitialLocations()
-    
 }
 
 final class RMLocationViewViewModel {
@@ -28,9 +27,12 @@ final class RMLocationViewViewModel {
             }
         }
     }
+    
     public private(set) var cellViewModels: [RMLocationTableViewCellViewModel] = []
     
     init() {}
+    
+    // MARK: - Public:
     
     public func location(at index: Int) -> RMLocation? {
         guard index < locations.count, index >= 0 else { return nil }
@@ -53,6 +55,8 @@ final class RMLocationViewViewModel {
             }
         }
     }
+    
+    // MARK: - Private:
     
     private var hasMoreResults: Bool {
         return false

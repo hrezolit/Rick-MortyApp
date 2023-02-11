@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// For no search result
 final class RMNoSearchResultsView: UIView {
     
     private let viewModel = RMNoSearchResultsViewViewModel()
@@ -45,6 +46,8 @@ final class RMNoSearchResultsView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Private:
     
     private func addConstraints() {
         NSLayoutConstraint.activate([

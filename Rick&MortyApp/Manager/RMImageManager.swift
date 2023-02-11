@@ -14,6 +14,8 @@ final class RMImageManager {
     
     private var imageDataCache = NSCache <NSString, NSData>()
     
+    // MARK: - Public:
+    
     /// Get image with URL
     /// - Parameters:
     ///   - url: Source URL

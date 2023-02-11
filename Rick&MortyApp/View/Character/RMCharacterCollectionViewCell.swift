@@ -61,6 +61,28 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Public:
+    
+    public func configure(with viewModel: RMCharacterCollectionViewCellViewModel) {
+        nameLabel.text = viewModel.characterName
+        statusLabel.text = viewModel.characterStatusText
+        viewModel.fetchImage { [weak self] result in
+            
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.imageView.image = image
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    // MARK: - Private:
+    
     /// Constraints for status label, name label and image view
     private func addConstraintsForCell() {
         NSLayoutConstraint.activate([
@@ -94,23 +116,5 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
         imageView.image = nil
         nameLabel.text = nil
         statusLabel.text = nil
-    }
-    
-    public func configure(with viewModel: RMCharacterCollectionViewCellViewModel) {
-        nameLabel.text = viewModel.characterName
-        statusLabel.text = viewModel.characterStatusText
-        viewModel.fetchImage { [weak self] result in
-            
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    let image = UIImage(data: data)
-                    self?.imageView.image = image
-                }
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
     }
 }

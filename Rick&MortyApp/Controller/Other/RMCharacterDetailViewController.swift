@@ -44,6 +44,8 @@ final class RMCharacterDetailViewController: UIViewController {
         detailView.collectionView?.dataSource = self
     }
     
+    // MARK: - Private:
+    
     @objc private func didTapShare() {
         
     }
@@ -59,17 +61,19 @@ final class RMCharacterDetailViewController: UIViewController {
     }
 }
 
-// MARK: - Collection View Delegate
+// MARK: - Extensions:
 
+// Delegate
 extension RMCharacterDetailViewController: UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.sections.count
     }
 }
 
-// MARK: - Collection View Data Source
-
+// Data Source
 extension RMCharacterDetailViewController: UICollectionViewDataSource {
+    
+    // numberOfItemsInSection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let sectionTypes = viewModel.sections[section]
         switch sectionTypes {
@@ -82,6 +86,7 @@ extension RMCharacterDetailViewController: UICollectionViewDataSource {
         }
     }
     
+    // cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let sectionType = viewModel.sections[indexPath.section]
@@ -112,6 +117,8 @@ extension RMCharacterDetailViewController: UICollectionViewDataSource {
             return cell
         }
     }
+    
+    //  didSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sectionType = viewModel.sections[indexPath.section]
 

@@ -118,8 +118,20 @@ final class RMEpisodeListViewViewModel: NSObject {
     }
 }
 
-//MARK: - CollectionViewDataSource
+//MARK: - extensions:
 
+// Delegate
+extension RMEpisodeListViewViewModel: UICollectionViewDelegate {
+    
+    // didSelectItemAt
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let selection = episodes[indexPath.row]
+        delegate?.didSelectEpisode(selection)
+    }
+}
+
+// Data Source
 extension RMEpisodeListViewViewModel: UICollectionViewDataSource {
     
     // numberOfItemsInSection
@@ -137,20 +149,7 @@ extension RMEpisodeListViewViewModel: UICollectionViewDataSource {
     }
 }
 
-//MARK: - CollectionViewDelegate
-
-extension RMEpisodeListViewViewModel: UICollectionViewDelegate {
-    
-    // didSelectItemAt
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        collectionView.deselectItem(at: indexPath, animated: true)
-        let selection = episodes[indexPath.row]
-        delegate?.didSelectEpisode(selection)
-    }
-}
-
-//MARK: - CollectionViewDelegateFlowLayout
-
+// Flow layout delegate
 extension RMEpisodeListViewViewModel: UICollectionViewDelegateFlowLayout {
     
     // viewForSupplementaryElementOfKind
@@ -190,7 +189,7 @@ extension RMEpisodeListViewViewModel: UICollectionViewDelegateFlowLayout {
     }
 }
 
-// MARK: - UIScrollViewDelegate
+// Scroll view delegate
 extension RMEpisodeListViewViewModel: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -36,6 +36,12 @@ final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailView
         viewModel.fetchEpisodeData()
     }
     
+    @objc func didTapShare() {
+        
+    }
+    
+    // MARK: - Private:
+    
     private func addConstraints() {
         NSLayoutConstraint.activate([
             
@@ -46,9 +52,6 @@ final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailView
         ])
     }
     
-    @objc func didTapShare() {
-        
-    }
     // MARK: - View delegate:
     
     func rmEpisodeDetailView(_ detailView: RMEpisodeDetailView, didSelect character: RMCharacter) {

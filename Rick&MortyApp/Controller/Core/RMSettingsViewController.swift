@@ -23,6 +23,8 @@ final class RMSettingsViewController: UIViewController {
         addSwitUIController()
     }
     
+    // MARK: - Private:
+    
     private func addSwitUIController() {
         
         let settingsSwiftUIController = UIHostingController(
@@ -44,6 +46,7 @@ final class RMSettingsViewController: UIViewController {
         settingsSwiftUIController.view.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            
             settingsSwiftUIController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             settingsSwiftUIController.view.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             settingsSwiftUIController.view.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),

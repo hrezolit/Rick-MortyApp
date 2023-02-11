@@ -59,6 +59,18 @@ final class RMCharacterInfoCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Public:
+    
+    public func configure(with viewModel: RMCharacterInfoCollectionViewCellViewModel) {
+        titleLabel.text = viewModel.title
+        valueLabel.text = viewModel.displayValue
+        iconImageView.image = viewModel.iconImage
+        iconImageView.tintColor = viewModel.tintColor
+        titleLabel.textColor = viewModel.tintColor
+    }
+    
+    // MARK: - Private:
+    
     private func addConstraints() {
         NSLayoutConstraint.activate([
         
@@ -92,13 +104,5 @@ final class RMCharacterInfoCollectionViewCell: UICollectionViewCell {
         iconImageView.image = nil
         iconImageView.tintColor = .label
         titleLabel.textColor = .label
-    }
-    
-    public func configure(with viewModel: RMCharacterInfoCollectionViewCellViewModel) {
-        titleLabel.text = viewModel.title
-        valueLabel.text = viewModel.displayValue
-        iconImageView.image = viewModel.iconImage
-        iconImageView.tintColor = viewModel.tintColor
-        titleLabel.textColor = viewModel.tintColor
     }
 }

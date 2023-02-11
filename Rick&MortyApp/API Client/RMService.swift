@@ -23,6 +23,8 @@ final class RMService {
         case faileWhileGetData
     }
     
+    // MARK: - Public:
+    
     /// API Call
     /// - Parameters:
     ///   - request: Requesting instance

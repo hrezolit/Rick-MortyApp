@@ -31,6 +31,24 @@ final class RMCharacterPhotoCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Public:
+    
+    public func configure(with viewModel: RMCharacterPhotoCollectionViewCellViewModel) {
+        
+        viewModel.fetchImage { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self?.imageView.image = UIImage(data: data)
+                }
+            case .failure:
+                break
+            }
+        }
+    }
+    
+    // MARK: - Private:
+    
     private func addConstraints() {
         NSLayoutConstraint.activate([
         
@@ -45,20 +63,5 @@ final class RMCharacterPhotoCollectionViewCell: UICollectionViewCell {
         super.prepareForReuse()
         
         imageView.image = nil
-    }
-    
-    public func configure(with viewModel: RMCharacterPhotoCollectionViewCellViewModel) {
-        
-        viewModel.fetchImage { [weak self] result in
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self?.imageView.image = UIImage(data: data)
-                }
-            case .failure:
-                break
-            }
-        }
-        
     }
 }

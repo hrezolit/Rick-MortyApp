@@ -116,10 +116,10 @@ final class RMCharacterInfoCollectionViewCellViewModel {
         }
     }
     
-    init(
-        type: `Type`,
-        value: String
-    ) {
+    // MARK: - init
+    
+    init(type: `Type`, value: String) {
+        
         self.type = type
         self.value = value
     }

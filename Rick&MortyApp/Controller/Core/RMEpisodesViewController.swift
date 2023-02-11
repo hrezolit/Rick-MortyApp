@@ -24,14 +24,16 @@ class RMEpisodesViewController: UIViewController, RMEpisodeListViewDelegate {
         addConstraintsForList()
     }
     
-    private func addSearchButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
-    }
-    
     @objc func didTapSearch() {
         let vc = RMSearchViewController(config: .init(type: .episode))
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: - Private:
+    
+    private func addSearchButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
     }
     
     /// setting up constraints for character list view

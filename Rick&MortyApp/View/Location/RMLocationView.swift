@@ -13,7 +13,7 @@ protocol RMLocationViewDelegate: AnyObject {
 
 final class RMLocationView: UIView {
     
-   public weak var delegate: RMLocationViewDelegate?
+    public weak var delegate: RMLocationViewDelegate?
     
     private var viewModel: RMLocationViewViewModel? {
         didSet {
@@ -25,7 +25,7 @@ final class RMLocationView: UIView {
             }
         }
     }
-
+    
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -60,6 +60,14 @@ final class RMLocationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Public:
+    
+    public func configure(with viewModel: RMLocationViewViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    //MARK: - Private:
+    
     private func configureTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -78,17 +86,15 @@ final class RMLocationView: UIView {
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor) 
         ])
     }
-    
-    public func configure(with viewModel: RMLocationViewViewModel) {
-        self.viewModel = viewModel
-    }
 }
+
+//MARK: - extensions
 
 extension RMLocationView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-     
+        
         guard let locationModel = viewModel?.location(at: indexPath.row) else { return }
         delegate?.rmLocationView(self, didSelec: locationModel)
     }
@@ -100,7 +106,7 @@ extension RMLocationView: UITableViewDataSource {
         
         return viewModel?.cellViewModels.count ?? 0
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cellViewModels = viewModel?.cellViewModels else {
             fatalError()

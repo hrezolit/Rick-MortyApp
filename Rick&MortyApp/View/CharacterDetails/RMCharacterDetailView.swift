@@ -42,7 +42,7 @@ final class RMCharacterDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Constraints:
+    // MARK: - Private:
     
     private func addConstraint() {
         
