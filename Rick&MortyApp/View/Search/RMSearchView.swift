@@ -25,6 +25,7 @@ final class RMSearchView: UIView {
         
         addSubviews(noResultsView, searchInputView)
         addConstraints()
+        searchInputView.configure(with: .init(type: viewModel.config.type))
     }
     
     @available(*, unavailable)
