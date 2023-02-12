@@ -198,6 +198,7 @@ extension RMCharacterListViewViewModel: UIScrollViewDelegate {
         else {
             return
         }
+        
         Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false) { [weak self] t in
             let offset = scrollView.contentOffset.y
             let totalContentHeight = scrollView.contentSize.height

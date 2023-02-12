@@ -27,6 +27,6 @@ final class RMCharacterPhotoCollectionViewCellViewModel {
             return
         }
         
-        RMImageManager.shared.downloadIMage(imageURL, completion: completion)
+        RMImageManager.shared.downloadImage(imageURL, completion: completion)
     }
 }

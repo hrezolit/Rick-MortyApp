@@ -11,7 +11,7 @@ import UIKit
 final class RMCharacterCollectionViewCell: UICollectionViewCell {
     
     static let cellIdentifier = "RMCharacterCollectionViewCell"
-    
+        
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -51,8 +51,10 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpLayer() {
-        contentView.layer.shadowColor = UIColor(red: 0, green: 1, blue: 1, alpha: 1).cgColor
-        contentView.layer.shadowOpacity = 0.4
+        
+        contentView.layer.cornerRadius = 5
+        contentView.layer.shadowColor = #colorLiteral(red: 0, green: 1, blue: 0.8206997514, alpha: 1).cgColor
+        contentView.layer.shadowOpacity = 0.7
         contentView.layer.shadowOffset = CGSize(width: 2, height: 2)
     }
     
@@ -107,6 +109,7 @@ final class RMCharacterCollectionViewCell: UICollectionViewCell {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
+        
         setUpLayer()
     }
     

@@ -97,7 +97,6 @@ final class RMEpisodeDetailViewViewModel {
         let requests: [RMRequest] = episode.characters
             .compactMap {
                 return URL(string: $0)
-                
             }
             .compactMap {
                 return RMRequest(url: $0)

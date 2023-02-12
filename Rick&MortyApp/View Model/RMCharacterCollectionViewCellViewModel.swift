@@ -36,7 +36,7 @@ final class RMCharacterCollectionViewCellViewModel: Hashable, Equatable {
             completion(.failure(URLError(.badURL)))
             return
         }
-        RMImageManager.shared.downloadIMage(url, completion: completion)
+        RMImageManager.shared.downloadImage(url, completion: completion)
     }
     
     //MARK: - Hashable

@@ -69,7 +69,7 @@ final class RMCharacterEpisodeCollectionViewCell: UICollectionViewCell {
         }
         
         viewModel.fetchEpisode()
-        contentView.layer.borderColor = viewModel.borderColor.cgColor
+        contentView.layer.borderColor = #colorLiteral(red: 0, green: 1, blue: 0.8206997514, alpha: 1).cgColor
     }
     
     // MARK: - Private:

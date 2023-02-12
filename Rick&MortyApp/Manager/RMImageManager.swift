@@ -20,7 +20,7 @@ final class RMImageManager {
     /// - Parameters:
     ///   - url: Source URL
     ///   - completion: Callback
-    public func downloadIMage(_ url: URL, completion: @escaping (Result<Data, Error>) -> Void ) {
+    public func downloadImage(_ url: URL, completion: @escaping (Result<Data, Error>) -> Void ) {
         let key = url.absoluteString as NSString
         
         if let data = imageDataCache.object(forKey: key) {

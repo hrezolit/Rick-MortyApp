@@ -48,7 +48,7 @@ final class RMEpisodeDetailView: UIView {
         
         let collectionView = createCollectionView()
         addSubviews(collectionView, spinner)
-        self.collectionView =  collectionView
+        self.collectionView = collectionView
         addConstraints()
         
         spinner.startAnimating()
@@ -98,6 +98,7 @@ final class RMEpisodeDetailView: UIView {
         
         // episodes cell
         collectionView.register(RMEpisodeInfoCollectionViewCell.self, forCellWithReuseIdentifier: RMEpisodeInfoCollectionViewCell.cellIdentifier)
+        
         // characters cell
         collectionView.register(RMCharacterCollectionViewCell.self, forCellWithReuseIdentifier: RMCharacterCollectionViewCell.cellIdentifier)
         
@@ -181,6 +182,7 @@ extension RMEpisodeDetailView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let sections = viewModel?.cellViewModels else { return 0 }
         let sectionType = sections[section]
+        
         switch sectionType {
         case .information(let viewModels):
             return viewModels.count
@@ -221,7 +223,6 @@ extension RMEpisodeDetailView: UICollectionViewDataSource {
             cell.configure(with: viewModelCell)
             
             return cell
-            
         }
     }
     

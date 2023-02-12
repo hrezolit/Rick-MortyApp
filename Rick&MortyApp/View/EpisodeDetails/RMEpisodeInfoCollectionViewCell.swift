@@ -77,7 +77,7 @@ final class RMEpisodeInfoCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = 8
         layer.masksToBounds = true
         layer.borderWidth = 3
-        layer.borderColor = UIColor.secondaryLabel.cgColor
+        layer.borderColor = UIColor(named: "borderColorMint")?.cgColor
     }
 }
 

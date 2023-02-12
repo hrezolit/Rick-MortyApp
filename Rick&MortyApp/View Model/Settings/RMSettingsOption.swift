@@ -22,7 +22,7 @@ enum RMSettingsOption: CaseIterable {
         case .rateApp:
             return nil
         case .contactUs:
-            return URL(string: "https://github.com/hrezolit")
+            return URL(string: "https://t.me/hrezolit")
         case .terms:
             return URL(string: "https://www.termsfeed.com/blog/sample-terms-and-conditions-template/")
         case .privacy:

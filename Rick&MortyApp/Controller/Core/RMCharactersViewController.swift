@@ -37,6 +37,8 @@ final class RMCharactersViewController: UIViewController, RMCharacterListViewDel
     
     private func addSearchButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
+        navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0, green: 1, blue: 0.8206997514, alpha: 1)
+
     }
     
     @objc func didTapSearch() {
