@@ -21,9 +21,8 @@ final class RMEpisodeListViewViewModel: NSObject {
     private var isLoadingMoreEpisodes = false
     
     private var borderColors: [UIColor] = [
-    
+        
         #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1), #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1), #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1), #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-    
     ]
     
     private var episodes: [RMEpisode] = [] {
@@ -33,6 +32,7 @@ final class RMEpisodeListViewViewModel: NSObject {
                     episodeDataURL: URL(string: episode.url),
                     borderColor: borderColors.randomElement() ?? .systemMint
                 )
+                
                 if !cellViewModels.contains(viewModel) {
                     cellViewModels.append(viewModel)
                 }
@@ -59,6 +59,7 @@ final class RMEpisodeListViewViewModel: NSObject {
                 let info = responseModel.info
                 self?.episodes = results
                 self?.apiInfo = info
+                
                 DispatchQueue.main.async {
                     self?.delegate?.didLoadInitialEpisodes()
                 }
@@ -76,6 +77,7 @@ final class RMEpisodeListViewViewModel: NSObject {
     public func fetchAdditionalEpisode(url: URL) {
         guard !isLoadingMoreEpisodes else { return }
         isLoadingMoreEpisodes = true
+        
         guard
             let request = RMRequest(url: url) else {
             isLoadingMoreEpisodes = false
