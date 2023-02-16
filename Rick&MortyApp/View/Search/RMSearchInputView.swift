@@ -32,6 +32,8 @@ final class RMSearchInputView: UIView {
         }
     }
     
+    private var stackView: UIStackView?
+    
     // MARK: - init
     
     override init(frame: CGRect) {
@@ -57,9 +59,30 @@ final class RMSearchInputView: UIView {
         searchBar.becomeFirstResponder()
     }
     
+    public func update(option: RMSearchInputViewViewModel.DynamicOption, value: String) {
+        
+        guard
+            let buttons = stackView?.arrangedSubviews as? [UIButton],
+            let allOptions = viewModel?.options,
+            let index = allOptions.firstIndex(of: option)
+        else { return }
+        
+        let button: UIButton = buttons[index]
+        button.setAttributedTitle(
+            NSAttributedString(
+                string: value.uppercased(),
+                attributes: [
+                    .font: UIFont.systemFont(ofSize: 18, weight: .medium),
+                    .foregroundColor: UIColor.link
+                ]),
+            for: .normal)
+    }
+    
     // MARK: - Private:
+    
     private func createOptionStackView() -> UIStackView {
         let stackView = UIStackView()
+        self.stackView = stackView
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
@@ -76,7 +99,7 @@ final class RMSearchInputView: UIView {
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
-//        stackView.backgroundColor = .systemBackground
+        //        stackView.backgroundColor = .systemBackground
         
         return stackView
     }
@@ -90,7 +113,7 @@ final class RMSearchInputView: UIView {
             let option = options[x]
             
             let button = createButton(with: option, tag: x)
-
+            
             stackView.addArrangedSubview(button)
         }
     }
