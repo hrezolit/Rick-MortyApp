@@ -1,6 +1,7 @@
 
 [![Swift Version][swift-image]][swift-url]
 ![Platform][platform-image]
+![architecture]
 [![Framework][framework-image]][framework-url]
 
 # Rick-MortyApp
@@ -28,7 +29,7 @@ Rick-MortyApp using free API https://rickandmortyapi.com.
 4. Run the project.
 
 ## Architecture:
-* Scrumdinger project is implemented using the Model-View-Controller(MVC) architecture pattern.
+* Rick-MortyApp project is implemented using the Model-View-View-Model(MVVM) architecture pattern.
  
 ## Requirements:
 * Xcode Version 14.3.1
@@ -55,6 +56,7 @@ import UIKit
 
 [swift-image]: https://img.shields.io/badge/swift-5.8.1-orange.svg
 [swift-url]: https://swift.org/
-[platform-image]: https://camo.githubusercontent.com/5a12a2bc88c183973f0863b8f5a539edb0e0a9758c8e6dad825ca56b4a959da6/68747470733a2f2f696d672e736869656c64732e696f2f636f636f61706f64732f702f4c46416c657274436f6e74726f6c6c65722e7376673f7374796c653d666c6174
+[platform-image]: https://img.shields.io/badge/iOS-grey.svg
+[architecture]: https://img.shields.io/badge/MVVM-green.svg
 [framework-image]: https://img.shields.io/badge/UIKit+SwiftUI-blue.svg
-[framework-url]: https://developer.apple.com/documentation/swiftui/
+[framework-url]: https://developer.apple.com/documentation/uikit/
